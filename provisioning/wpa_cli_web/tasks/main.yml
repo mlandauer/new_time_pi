@@ -1,2 +1,10 @@
 ---
-# tasks file for wpa_cli_web
+- name: Ruby development headers
+  apt: pkg=ruby1.9.1-dev state=present
+
+- name: Install wpasupplicant
+  apt: pkg=wpasupplicant state=present
+
+- name: Install gem
+  # TODO Install particular version of gem
+  gem: name=wpa_cli_web state=present user_install=no

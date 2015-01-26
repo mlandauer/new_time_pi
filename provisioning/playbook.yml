@@ -8,3 +8,4 @@
   roles:
     - clock
     - avahi
+    - wpa_cli_web

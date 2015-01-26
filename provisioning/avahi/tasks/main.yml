@@ -1,3 +1,7 @@
 ---
 - name: Install avahi-daemon package
   apt: pkg=avahi-daemon state=present
+
+- name: Broadcast http service
+  template: src=http.service dest=/etc/avahi/services/http.service
+  notify: restart avahi

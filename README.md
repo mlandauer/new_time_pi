@@ -5,3 +5,19 @@ whatever time of year it is.
 Doing this with a Raspberry Pi and a hacked wall clock mechanism.
 
 This is very much a work in progress.
+
+## Requirements
+
+Ansible
+
+## Provisioning
+
+First (and only once) make it so you can login without a password
+```
+ssh-copy-id pi@10.0.0.104
+```
+
+```
+cd provisioning
+./provision.sh
+```

@@ -20,3 +20,6 @@
 - name: Install gem
   # TODO Install particular version of gem
   gem: name=wpa_cli_web state=present user_install=no
+
+- name: Script for setting up ad-hoc network if necessary
+  template: src=try_adhoc_network dest=/usr/local/bin

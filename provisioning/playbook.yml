@@ -1,0 +1,9 @@
+---
+
+- name: Configure Raspberry Pi for use in new time clock project
+
+  hosts: all
+  remote_user: pi
+  sudo: yes
+  roles:
+    - avahi

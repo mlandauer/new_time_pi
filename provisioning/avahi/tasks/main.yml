@@ -1,2 +1,3 @@
 ---
-# tasks file for avahi
+- name: Install avahi-daemon package
+  apt: pkg=avahi-daemon state=present

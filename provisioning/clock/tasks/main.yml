@@ -1,2 +1,3 @@
 ---
-# tasks file for clock
+- name: Set hostname to clock
+  hostname: name=clock

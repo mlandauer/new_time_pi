@@ -24,7 +24,7 @@ createAdHocNetwork(){
   /bin/sleep 2
 
   echo "Configuring IP..."
-  sudo ifconfig wlan0 10.0.0.200 netmask 255.0.0.0
+  sudo ifconfig wlan0 10.1.0.200 netmask 255.0.0.0
   /bin/sleep 2
 }
 
@@ -75,8 +75,8 @@ then
   echo "Starting DNSMasq"
   /usr/sbin/service dnsmasq start
 
-  echo "Symlink Access Point"
-  showAccessPoint
-else
-  showRadiodanClient
+#  echo "Symlink Access Point"
+#  showAccessPoint
+#else
+#  showRadiodanClient
 fi

@@ -11,15 +11,24 @@
 - name: Don't start dnsmasq on boot
   service: name=dnsmasq enabled=no state=stopped
 
+- name: dnsmasq configuration
+  template: src=dnsmasq.conf dest=/etc/dnsmasq.d
+
 - name: Install hostapd
-  apt: pkg=hostapd state=present
+  apt: pkg=hostapd=1:1.0-3+deb7u1 state=present
 
 - name: Don't start hostapd on boot
   service: name=hostapd enabled=no state=stopped
+
+- name: hostapd configuration
+  template: src=hostapd.conf dest=/etc/hostapd
 
 - name: Install gem
   # TODO Install particular version of gem
   gem: name=wpa_cli_web state=present user_install=no
 
+- name: Startup script for wpa_cli_web
+  template: src=wpa-cli-web dest=/etc/init.d mode=0755
+
 - name: Script for setting up ad-hoc network if necessary
-  template: src=try_adhoc_network dest=/usr/local/bin
+  template: src=try_adhoc_network dest=/usr/local/bin mode=0711

@@ -5,6 +5,12 @@
 - name: Install wpasupplicant
   apt: pkg=wpasupplicant state=present
 
+- name: Install dnsmasq
+  apt: pkg=dnsmasq state=present
+
+- name: Install hostapd
+  apt: pkg=hostapd state=present
+
 - name: Install gem
   # TODO Install particular version of gem
   gem: name=wpa_cli_web state=present user_install=no

@@ -8,8 +8,14 @@
 - name: Install dnsmasq
   apt: pkg=dnsmasq state=present
 
+- name: Don't start dnsmasq on boot
+  service: name=dnsmasq enabled=no state=stopped
+
 - name: Install hostapd
   apt: pkg=hostapd state=present
+
+- name: Don't start hostapd on boot
+  service: name=hostapd enabled=no state=stopped
 
 - name: Install gem
   # TODO Install particular version of gem

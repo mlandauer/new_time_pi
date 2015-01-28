@@ -1,3 +1,4 @@
+#!/usr/bin/env ruby
 require 'pi_piper'
 
 unit = 0.1

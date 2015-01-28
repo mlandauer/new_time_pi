@@ -26,7 +26,9 @@ character_timing = { "a" => [dot, dash],             "b" => [dash, dot, dot, dot
                    } 
 
 pin = PiPiper::Pin.new(:pin => 17, :direction => :out)
+pin2 = PiPiper::Pin.new(:pin => 27, :direction => :out)
 pin.off
+pin2.on
 
 loop do
   puts "Please type something"
@@ -35,12 +37,15 @@ loop do
   something.each_char do |letter|
     if letter == " "
       pin.off
+      pin2.on
       sleep medium_gap
     else
       character_timing[letter].each do |timing| 
         pin.on
-        sleep timing
+        pin2.off 
+       sleep timing
         pin.off
+        pin2.on 
         sleep inter_element_gap
       end
       sleep short_gap - inter_element_gap

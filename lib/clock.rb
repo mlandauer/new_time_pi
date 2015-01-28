@@ -4,8 +4,9 @@ class Clock
 
   def initialize(options = {})
     # From calibrating using "calibrate_pulse_time"
-    # we get that the minimum pulse time is around 0.01816 seconds
-    @pulse_time = options[:pulse_time] || 0.02
+    # we get that the minimum pulse time is around 0.02549755 seconds
+    # when there is no delay between ticks
+    @pulse_time = options[:pulse_time] || 0.03
 
     if Clock.raspberry_pi?
       @pin1 = PiPiper::Pin.new(:pin => 17, :direction => :out)

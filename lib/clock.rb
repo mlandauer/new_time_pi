@@ -1,8 +1,10 @@
 # Control a physical clock by moving the second hand forward
 class Clock
-  attr_accessor :development
+  attr_accessor :pulse_time
 
-  def initialize
+  def initialize(options = {})
+    @pulse_time = options[:pulse_time] || 0.05
+
     if Clock.raspberry_pi?
       @pin1 = PiPiper::Pin.new(:pin => 17, :direction => :out)
       @pin2 = PiPiper::Pin.new(:pin => 27, :direction => :out)
@@ -39,7 +41,7 @@ class Clock
 
   def pulse_pin(pin)
     pin.on
-    sleep 0.05
+    sleep pulse_time
     pin.off
   end
 end

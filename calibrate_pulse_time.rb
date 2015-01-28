@@ -10,12 +10,12 @@ require "io/console"
 bad = 0.0
 good = 0.5
 
-clock = Clock.new
 
 loop do
   puts "Value is now between #{bad} and #{good}"
   test_value = (bad + good) / 2
 
+  clock = Clock.new(pulse_time: test_value)
   (0..60).each do |i|
     clock.tick
     sleep 0.02

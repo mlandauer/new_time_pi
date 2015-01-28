@@ -44,6 +44,7 @@ class Clock
   end
 end
 
+puts RUBY_PLATFORM
 
 clock = Clock.new
 loop do

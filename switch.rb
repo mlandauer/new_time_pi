@@ -11,12 +11,12 @@ pin = pin1
 loop do
   # Turn pin1 on for a short time
   pin.on
-  sleep 0.1
+  sleep 0.05
   pin.off
   if pin == pin1
     pin = pin2
   else
     pin = pin1
   end
-  sleep 0.5 
+  sleep 0.02 
 end

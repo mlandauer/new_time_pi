@@ -8,20 +8,26 @@ class Clock
     @pin2 = PiPiper::Pin.new(:pin => 27, :direction => :out)
     @pin1.off
     @pin2.off
-    @pin = @pin1
+    @count = 0
   end
 
   # Move the second hand forward
   def tick
-    # Turn pin1 on for a short time
-    @pin.on
-    sleep 0.05
-    @pin.off
-    if @pin == @pin1
-      @pin = @pin2
+    if @count == 0
+      pulse_pin(@pin1)
+      @count = 1
     else
-      @pin = @pin1
+      pulse_pin(@pin2)
+      @count = 0
     end
+  end
+
+  private
+
+  def pulse_pin(pin)
+    pin.on
+    sleep 0.05
+    pin.off
   end
 end
 
@@ -29,5 +35,5 @@ end
 clock = Clock.new
 loop do
   clock.tick
-  sleep 0.02 
+  sleep 0.02
 end

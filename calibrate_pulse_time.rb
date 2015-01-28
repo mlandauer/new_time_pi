@@ -16,7 +16,7 @@ loop do
   test_value = (bad + good) / 2
 
   clock = Clock.new(pulse_time: test_value)
-  (0..60).each do |i|
+  (1..60).each do |i|
     clock.tick
     sleep 0.02
   end

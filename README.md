@@ -9,6 +9,9 @@ This is very much a work in progress.
 ## Requirements
 
 Ansible
+Raspberry Pi
+Wifi dongle for Raspberry Pi
+8MB SD Card
 
 ## Provisioning
 
@@ -21,3 +24,12 @@ ssh-copy-id pi@10.0.0.104
 cd provisioning
 ./provision.sh
 ```
+
+## Basic Raspberry Pi setup
+
+Follow NOOBS install instructions: http://www.raspberrypi.org/help/noobs-setup/
+Plug in keyboard + wifi + monitor
+Install Raspbian through NOOBS
+Follow instructions on setting up wifi: https://learn.adafruit.com/adafruits-raspberry-pi-lesson-3-network-setup/setting-up-wifi-with-occidentalis
+Change password
+You can ssh in now and don't need to use the keyboard and screen anymore

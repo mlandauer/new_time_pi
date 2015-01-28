@@ -18,21 +18,21 @@ class Clock
 
   # Move the second hand forward
   def tick
-    if @count == 0
-      if Clock.raspberry_pi?
+    if Clock.raspberry_pi?
+      if @count == 0
         pulse_pin(@pin1)
       else
-        puts "Tick..."
-      end
-      @count = 1
-    else
-      if Clock.raspberry_pi?
         pulse_pin(@pin2)
+      end
+    else
+      if @count == 0
+        puts "Tick..."
       else
         puts "Tock..."
       end
-      @count = 0
     end
+
+    @count = @count == 0 ? 1 : 0
   end
 
   private

@@ -3,7 +3,9 @@ class Clock
   attr_accessor :pulse_time
 
   def initialize(options = {})
-    @pulse_time = options[:pulse_time] || 0.05
+    # From calibrating using "calibrate_pulse_time"
+    # we get that the minimum pulse time is around 0.01816 seconds
+    @pulse_time = options[:pulse_time] || 0.02
 
     if Clock.raspberry_pi?
       @pin1 = PiPiper::Pin.new(:pin => 17, :direction => :out)

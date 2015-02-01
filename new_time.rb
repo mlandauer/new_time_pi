@@ -9,7 +9,13 @@ loop do
   # First find out when the next tick of the clock should happen
   t0 = Time.now
   n0 = NewTime::NewTime.convert(t0, point)
-  n1 = NewTime::NewTime.new(n0.year, n0.month, n0.day, n0.hours, n0.minutes, n0.seconds + 1, 0)
+  minutes = n0.minutes
+  seconds = n0.seconds + 1
+  if seconds >= 60
+    minutes += 1
+    seconds -= 60
+  end
+  n1 = NewTime::NewTime.new(n0.year, n0.month, n0.day, n0.hours, minutes, seconds, 0)
   t1 = n1.convert(point)
   wait = t1 - Time.now
   if wait < 0

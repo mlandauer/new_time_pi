@@ -1,9 +1,11 @@
 #!/usr/bin/env ruby
 require "new_time"
+require "artii"
 require_relative "lib/clock"
 
 point = NewTime::Point.new(-33.714955, 150.311407, "Australia/Sydney")
 clock = Clock.new
+a = Artii::Base.new
 
 loop do
   # First find out when the next tick of the clock should happen
@@ -24,5 +26,5 @@ loop do
   end
   sleep(wait)
   clock.tick
-  puts "#{n1} #{n1.seconds}"
+  puts a.asciify("#{n1} #{n1.seconds}")
 end

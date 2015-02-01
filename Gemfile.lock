@@ -3,6 +3,7 @@ GEM
   specs:
     RubySunrise (0.3.1)
       tzinfo
+    artii (2.1.1)
     ffi (1.9.6)
     new_time (0.0.4)
       RubySunrise (~> 0)
@@ -16,5 +17,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  artii
   new_time
   pi_piper
